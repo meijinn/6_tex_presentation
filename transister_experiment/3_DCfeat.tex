@@ -1,0 +1,164 @@
+\section{トランジスタのDC特性(基本特性)について}
+\begin{description}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item[ゴール] $I_E$-$V_{BE}$ 特性、$I_C$-$I_B$ 特性、$I_C$-$V_{CE}$特性をLTspiceのシミュレーションで取得する。
+  \item[キーワード] 直流電流増幅率、ダイオード特性
+\end{description}
+トランジスタは小さな信号を大きな信号に増幅できる特性を持つ半導体素子である。
+3つの電極は、E(エミッタ) C(コレクタ) B(ベース) で構成される。今回は、NPNトランジスタを扱う。
+\subsection{原理・計算}
+NPNトランジスタ回路の原理図を下図に示す。
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics[width=0.5\linewidth]{img/24.pdf}
+  \caption{NPNトランジスタ回路の原理図}
+  \end{center}
+\end{figure}
+\\キルヒホッフの電流測より、
+$$I_E = I_B+I_C$$
+エミッタ接地直流増幅率を $\beta_0$ とすると、$$I_C = \beta_0I_B$$
+また、ベース \- エミッタ間はpn接合ダイオードなので、エミッタ電流 $I_E$ は、
+$$I_E \approx I_S\left[\exp\left(\frac{q}{kT}V_{BE}\right)-1\right]\approx I_S\exp\left(\frac{q}{kT}V_{BE}\right)$$
+$I_S$はダイオードに逆方向の電圧がかかったときの微小な電流(1pA ～ 1nA)である。 $q$ は、電子の負荷、$k$ はボルツマン定数、
+Tは絶対温度であり、$\frac{q}{kT}$ の値は、常温(300K)で約 38.7 V$^{-1}$ となる。
+式を変形して、$$\ln I_E \approx \ln I_S + \frac{q}{kT}V_{BE}$$
+$$\log I_E \approx \log I_S + \left(\frac{q}{kT}\log e\right)\cdot V_{BE}$$
+となる。
+
+\subsection{LTspiceで演習}
+\begin{enumerate}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item 「Component」→ 「npn」→ OK
+  \item トランジスタを右クリック → 「Pick New Transistor」で「2SC1815」を選択しOK
+  \item 電流源、電圧源を以下の図のように配置し、DCスイープを以下のように設定
+  \begin{figure}[htb]
+    \begin{center}
+    \subfigure[特性取得用]{	% 副題なし
+    \includegraphics[width=.45\columnwidth]{img/25.pdf}
+    }
+    \subfigure[dcディレクティブタブ]{
+    \includegraphics[width=.45\columnwidth]{img/26.png}
+    }
+    \subfigure[DC動作点解析]{
+    \includegraphics[width=.45\columnwidth]{img/27.png}
+    }
+    \caption{コントロールパネルの設定} 
+    \end{center}
+  \end{figure}
+  \item 「Run」ボタンをクリックして解析を実行する
+  \item ベース電圧を測定する(プローブカーソルを合わせてクリックする)
+\end{enumerate}
+
+\subsubsection{$I_E$-$V_{BE}$特性}
+$I_E$-$V_{BE}$特性を図に示す。
+\begin{enumerate}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item グラフの横軸にマウスカーソルを当てて定規カーソルで右クリック →「Horizontal Axis」→ 「Quantity Plotted」欄を "V(b)" に変更 → OKボタンクリックで終了。
+  \item グラフの凡例のV(b)をクリック →「Expression Editor」→ 「Enter an algebraic expression to plot」を "-Ie(Q1)" に変更する。
+  \item OKボタンをクリックして終了すると -Ie(Q1) vs V(b) のグラフが表示される。
+  \item グラフの軸上で右クリックし、「Horizontal Axis」「Vertical Axis」「tick」を調整する。
+  \begin{figure}[htb]
+    \begin{center}
+    \subfigure[$I_E$-$V_{BE}$特性(ダイオード特性)]{
+    \includegraphics[width=.45\columnwidth]{img/28.png}
+    }
+    \subfigure[対数表示]{
+    \includegraphics[width=.45\columnwidth]{img/29.png}
+    }
+    \caption{$I_E$-$V_{BE}$特性}
+    \end{center}
+  \end{figure}
+  \item この特性を印刷するか画像で保存しておく。この回路図も保存しておく。
+  \item 「Vertical Axis」→「Logarithmic」欄にチェック → OKと設定すると、片対数グラフでエミッタ電流が直線的に変化している。
+\end{enumerate}
+
+\begin{description}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item[課題4] 片対数グラフを用いて、$\frac{q}{kT}\log_{10}(e)$の値(理論値)と比較してください。\\
+  カーソルを用いて傾きを求める。グラフ上部の凡例を右クリック →「Expression Editor」→「Attached Cursor」→ 1st \verb|&| 2nd を選んで十字カーソルを2個表示
+\end{description}
+
+\subsubsection{$I_C$-$I_B$特性}
+$I_E$-$V_{BE}$特性を図に示す。
+\begin{enumerate}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item 「Edit Simulation Cmd」→ 「Edit Simulation Command」→「DC sweep」で以下のように設定しディレクティブを貼り付ける。
+  \begin{figure}[htb]
+    \begin{center}
+    \subfigure[DCスイープ設定]{
+    \includegraphics[width=.45\columnwidth]{img/30.png}
+    }
+    \subfigure[$I_C$-$I_B$特性の]{
+    \includegraphics[width=.45\columnwidth]{img/31.png}
+    }
+    \caption{$I_C$-$I_B$特性}
+    \end{center}
+  \end{figure}
+\end{enumerate}
+
+\begin{description}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item[課題5] 実験 $I_C-I_B$ 特性を用いてエミッタ交流電流増幅率と接地直流電流増幅率を求めて下さい。その値を直流電流増幅率と比較して下さい。
+  \item[交流電流増幅率] 特性曲線の1点で、ベース電流とコレクタ電流の増幅率を求める。
+  \item[直流電流増幅率] 特性曲線の2点で、ベース電流とコレクタ電流の増幅率を求める。
+\end{description}
+
+\subsubsection{$I_C$-$V_{CE}$特性}
+$I_C$-$V_{CE}$特性を図に示す。
+\begin{enumerate}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item $I_1$をパラメータとして設定する。$I_1$を右クリックして \verb|"{IB}"| と入力する。
+  \item spiceディレクティブを設定
+    \begin{itemize}
+      \item 「SPICE Directive」(.op) → 「Edit Text on the Schematic」→ 入力欄で右クリック「Help me Edit」→ 「.step Command」→ 「.step Statement Editor」にSPICEディレクティブを書き込む → OK
+      \item \verb|.step param IB list 10u 15u 20u 25u 30u 35u 40u 45u 50u| と入力
+
+    \begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[width=.8\linewidth]{img/32.pdf}
+      \caption{$I_C$-$V_{CE}$特性}
+      \end{center}
+    \end{figure}
+
+    \begin{figure}[htb]
+      \begin{center}
+      \subfigure[.op ディレクティブ]{
+      \includegraphics[width=.45\columnwidth]{img/33.png}
+      }
+      \subfigure[stepパラメータの設定]{
+      \includegraphics[width=.45\columnwidth]{img/34.png}
+      }
+      \caption{.op ディレクティブの設定}
+      \end{center}
+    \end{figure}
+  \end{itemize}
+  \item DCスイープの設定
+  \begin{itemize}
+    \item \verb|.dc V1 0 10 0.01|
+    \item 「Run」をクリックし、$I_C$をプローブで測る。
+  \end{itemize}
+  \begin{figure}[htb]
+    \begin{center}
+    \subfigure[$I_C$-$V_{CE}$特性のディレクティブ]{
+    \includegraphics[width=.45\columnwidth]{img/35.png}
+    }
+    \subfigure[$I_C$-$V_{CE}$特性]{
+    \includegraphics[width=.35\columnwidth]{img/36.pdf}
+    }
+    \caption{$I_{CE}$-$V_{CE}$特性}
+    \end{center}
+  \end{figure}
+    \item この特性を印刷するか画像で保存しておく。
+    \begin{description}
+      \setlength{\parskip}{0cm} % 段落間
+      \setlength{\itemsep}{0cm} % 項目間
+      \item[課題6] $I_C-V_{CE}$ 特性から、入力信号トランジスタの増幅回路を設計するための$V_{CE}$の領域は何 V \verb|～| 何 V が良いでしょうか？
+    \end{description}
+\end{enumerate}

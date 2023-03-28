@@ -1,0 +1,92 @@
+\documentclass[12pt,a4j]{jarticle}
+%---------------------------------------------------
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{ascmac}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage[dvips,usenames]{color}
+\usepackage{colortbl}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{setspace} 
+%---------------------------------------------------
+\definecolor{bl}{rgb}{0.94,0.97,1}
+\definecolor{gr}{rgb}{0.5,0.5,0.5}
+\makeatletter
+\def\section{\newpage\@startsection {section}{1}{\z@}{2.3ex plus -1ex minus -.2ex}{2.3 ex plus .2ex}{\Large\bf}}
+\makeatother
+%---------------------------------------------------
+% ページの設定
+\setlength{\textwidth}{160truemm}
+\setlength{\textheight}{240truemm}
+\setlength{\topmargin}{-14.5truemm}
+\setlength{\oddsidemargin}{-0.5truemm}
+\setlength{\headheight}{5truemm}
+\setlength{\parindent}{1zw}
+%---------------------------------------------------
+%--------行間広め
+\setstretch{1.5}
+%--------ヘッダーとフッターの設定
+\usepackage{fancyhdr}
+\lhead{\leftmark}
+\chead{}
+\rhead{\rightmark}
+\cfoot{\thepage}
+
+\rfoot{}
+\begin{document}
+\vspace*{2cm}
+\thispagestyle{empty}
+\begin{spacing}{1}
+\begin{center}
+{\Large 明石工業高等専門学校専攻科 \\[1truecm]
+理工学研究科修士論文} \\[3.5truecm]
+\huge ビッグデータの始まりと終焉 \\
+\LARGE The end of Big Data: a reasonable Internet of Things\\[4truecm]
+\Large 00N7100000X 統計 太郎 \\
+(経営システム工学専攻) \\[1truecm]
+指導教員 指導祠堂
+\end{center}
+
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+\end{spacing}
+\newpage
+\abstract{高瀬舟は京都の高瀬川を上下する小舟である。徳川時代に京都の罪人が遠島を申し渡されると、本人の親類が牢屋敷へ呼び出されて、そこで暇乞いをすることを許された。それから罪人は高瀬舟に載せられて、大阪へ回されることであった。それを護送するのは、京都町奉行の配下にいる同心で、この同心は罪人の親類の中で、おも立った一人を大阪まで同船させることを許す慣例であった。これは上へ通った事ではないが、いわゆる大目に見るのであった、黙許であった。
+}
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{fancy} %これをいれるとフッターとヘッダーが華やかに
+\input{1_jyoron.tex}
+\input{2_kanren.tex}
+
+\pagestyle{plain}
+\section*{謝辞}
+ここに謝辞を書く．
+\addcontentsline{toc}{section}{参考文献}
+\bibliographystyle{jplain}
+\begin{thebibliography}{3}
+\bibitem{1}
+谷啓（2011），
+統計学的トロンボーン演奏法．
+どこかの統計学論文誌Ａ, 0号, Vol.0, 11--92 
+\bibitem{2}
+つのだ☆ひろ（2009），
+Rを使ったドラム演奏法．
+どこかの統計学論文誌B, 0号, Vol.0, 11--92 
+\bibitem{3}
+Dan Aykroyd（2000），
+Statistical American Joke．
+{\it Journal of Blues Brothers},0号, Vol.0, 11--92 
+
+\bibitem{4}
+「ホームページの引用はあんまりしないほうがいいよ講座」{\it http://www.google.co.jp/}（最終アクセス　2013年1月2日）
+\end{thebibliography}
+
+\section*{付録}
+\addcontentsline{toc}{section}{付録}
+
+\end{document}

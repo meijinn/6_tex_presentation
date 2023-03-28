@@ -1,0 +1,40 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,arrows.meta}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \draw[->,>=stealth,semithick] (-2,0)--(2,0)node[above]{\$x\$}; %x軸
+  \draw[->,>=stealth,semithick] (0,-1)--(0,3)node[right]{\$y\$}; %y軸
+  \draw (0,0)node[below right]{O}; %原点
+  \draw (-1,0)node[below]{\$-1\$}; %点(-1,0)
+  \draw (0,1)node[right]{\$1\$}; %点(0,1)
+  \draw[very thick,domain=-2:2] plot(\x,\x+1)node[right]{\$y=x+1\$};
+ \end{tikzpicture}
+
+
+\end{document}
+
+\documentclass[a4paper,11pt]{jsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+
+
+\begin{document}
+
+\title{}
+\author{}
+\date{\today}
+\maketitle
+
+
+
+
+
+\end{document}

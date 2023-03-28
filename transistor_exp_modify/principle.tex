@@ -1,0 +1,87 @@
+\documentclass[10pt,a4j,dvipdfmx]{jarticle}
+%---------------------------------------------------
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,mathtools}
+\usepackage{ascmac}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[dvips,usenames]{color}
+\usepackage{colortbl}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{setspace}
+\usepackage{subfigure}
+%---------------------------------------------------
+\definecolor{bl}{rgb}{0.94,0.97,1}
+\definecolor{gr}{rgb}{0.5,0.5,0.5}
+% \makeatletter
+% \def\section{\newpage\@startsection {section}{1}{\z@}{2.3ex plus -1ex minus -.2ex}{2.3 ex plus .2ex}{\Large\bf}}
+% \makeatother
+%---------------------------------------------------
+\setlength{\textwidth}{160truemm}
+\setlength{\textheight}{240truemm}
+\setlength{\topmargin}{-14.5truemm}
+\setlength{\oddsidemargin}{-0.5truemm}
+\setlength{\headheight}{0truemm}
+\setlength{\parindent}{1zw}
+\setlength{\abovedisplayskip}{-2pt} % 数式上部のマージン
+\setlength{\belowdisplayskip}{0pt} % 数式下部のマージン
+%---------------------------------------------------
+\setstretch{1.2}
+%---------------------------------------------------
+\renewcommand{\subfigtopskip}{5pt}	% 図の上の隙間。上図の副題と下図の間。
+\renewcommand{\subfigbottomskip}{0pt} % 図の下の隙間。副題と本題の間。
+\renewcommand{\subfigcapskip}{-6pt}	% 図と副題の間
+\renewcommand{\subcapsize}{\scriptsize} % 副題の文字の大きさ
+\newcommand{\mysection}[1]{\vspace{-20pt}\section{#1}}
+\newcommand{\mysubsection}[1]{\vspace{-20pt}\subsection{#1}}
+\newcommand{\mysubsubsection}[1]{\vspace{-10pt}\subsubsection{#1}}
+%---------------------------------------------------
+% ヘッダーとフッターの設定
+\usepackage{fancyhdr}
+\rhead{\leftmark}
+\chead{}
+\lhead{\rightmark}
+\cfoot{\thepage}
+
+\rfoot{}
+\begin{document}
+%---------------------------------------------------
+\setlength{\abovedisplayskip}{1.5pt} 
+\setlength{\belowdisplayskip}{0pt}
+%---------------------------------------------------
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\setlength{\headheight}{5truemm}
+
+\input{92_DCfeat.tex}
+\input{93_vbe_bias.tex}
+\input{94_current_bias_dc.tex}
+\input{95_emitter_ac.tex}
+\newpage
+\pagestyle{plain}
+\bibliographystyle{jplain}
+\addcontentsline{toc}{section}{参考文献}
+\begin{thebibliography}{3}
+\setlength{\parskip}{0cm} %enumerateのマージン
+\setlength{\itemsep}{0cm}
+
+\bibitem{1}
+鹿間信介（2022）, 
+LTspiceで独習できる! はじめての電子回路設計. 
+講談社, 2022.
+
+\bibitem{2}
+「エミッタ接地回路の『特徴』や『原理』について」\\{\it https://detail-infomation.com/amplifier-common-emitter-circuit/}\\
+(最終アクセス　2022年11月1日)
+
+
+\bibitem{3}
+「トランジスタ(2SC1815)によるエミッタ接地回路【4】：電圧増幅回路の設計とLTSpiceによる詳細なシミュレーション｜たぬしの空想半径」, {\it https://tanukitanushi.com/rikei/circuit/emit4/}\\
+(最終アクセス　2022年11月1日)
+\end{thebibliography}
+
+\end{document}

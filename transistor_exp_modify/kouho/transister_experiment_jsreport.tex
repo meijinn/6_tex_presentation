@@ -1,0 +1,147 @@
+\documentclass[12pt,a4j]{jreport}
+
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amssymb,amsmath}
+\usepackage{ascmac}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[dvips,usenames]{color}
+\usepackage{colortbl}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{setspace}
+
+
+\renewcommand{\prechaptername}{}
+\renewcommand{\postchaptername}{}
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+\setlength{\textwidth}{160truemm}
+\setlength{\textheight}{240truemm}
+\setlength{\topmargin}{-14.5truemm}
+\setlength{\oddsidemargin}{-0.5truemm}
+\setlength{\headheight}{0truemm}
+\setlength{\parindent}{1zw}
+
+\setstretch{1.3}
+% ヘッダーとフッターの設定
+\usepackage{fancyhdr}
+\rhead{\leftmark}
+\chead{}
+\lhead{\rightmark}
+\cfoot{\thepage}
+
+\rfoot{}
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{spacing}{1}
+\begin{center}
+\vspace*{3.5cm}
+{\Huge トランジスタ回路の設計}\\
+\vspace*{12.5cm}
+{\Large 電気情報工学科4年後期}\\
+{\Large 電気電子工学実験II}\\
+\vspace*{1cm}
+\end{center}
+
+
+\pagenumbering{roman}
+\newpage
+
+\tableofcontents
+\end{spacing}
+\newpage
+
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\setlength{\headheight}{5truemm}
+
+\chapter{序論}
+\section{研究の背景}
+目次を作る際は\verb+\tableofcontents+ と打ちます。\\
+新しいページに区切るときは\verb+\newpage+ と打ちます\\
+いつのころであったか。たぶん江戸で白河楽翁侯が政柄を執っていた寛政のころででもあっただろう。智恩院の桜が入相の鐘に散る春の夕べに、これまで類のない、珍しい罪人が高瀬舟に載せられた。
+
+それは名を喜助と言って、三十歳ばかりになる、住所不定の男である。もとより牢屋敷に呼び出されるような親類はないので、舟にもただ一人で乗った。
+
+護送を命ぜられて、いっしょに舟に乗り込んだ同心羽田庄兵衛は、ただ喜助が弟殺しの罪人だということだけを聞いていた。さて牢屋敷から棧橋まで連れて来る間、この痩肉の、色の青白い喜助の様子を見るに、いかにも神妙に、いかにもおとなしく、自分をば公儀の役人として敬って、何事につけても逆らわぬようにしている。しかもそれが、罪人の間に往々見受けるような、温順を装って権勢に媚びる態度ではない。
+
+庄兵衛は不思議に思った。そして舟に乗ってからも、単に役目の表で見張っているばかりでなく、絶えず喜助の挙動に、細かい注意をしていた。
+
+その日は暮れ方から風がやんで、空一面をおおった薄い雲が、月の輪郭をかすませ、ようよう近寄って来る夏の温かさが、両岸の土からも、川床の土からも、もやになって立ちのぼるかと思われる夜であった。下京の町を離れて、加茂川を横ぎったころからは、あたりがひっそりとして、ただ舳にさかれる水のささやきを聞くのみである。
+
+夜舟で寝ることは、罪人にも許されているのに、喜助は横になろうともせず、雲の濃淡に従って、光の増したり減じたりする月を仰いで、黙っている。その額は晴れやかで目にはかすかなかがやきがある。
+
+庄兵衛はまともには見ていぬが、始終喜助の顔から目を離さずにいる。そして不思議だ、不思議だと、心の内で繰り返している。それは喜助の顔が縦から見ても、横から見ても、いかにも楽しそうで、もし役人に対する気がねがなかったなら、口笛を吹きはじめるとか、鼻歌を歌い出すとかしそうに思われたからである。
+
+庄兵衛は心の内に思った。これまでこの高瀬舟の宰領をしたことは幾たびだか知れない。しかし載せてゆく罪人は、いつもほとんど同じように、目も当てられぬ気の毒な様子をしていた。それにこの男はどうしたのだろう。遊山船にでも乗ったような顔をしている。罪は弟を殺したのだそうだが、よしやその弟が悪いやつで、それをどんなゆきがかりになって殺したにせよ、人の情としていい心持ちはせぬはずである。この色の青いやせ男が、その人の情というものが全く欠けているほどの、世にもまれな悪人であろうか。どうもそうは思われない。ひょっと気でも狂っているのではあるまいか。いやいや。それにしては何一つつじつまの合わぬことばや挙動がない。この男はどうしたのだろう。庄兵衛がためには喜助の態度が考えれば考えるほどわからなくなるのである。
+
+\section{研究目的}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\chapter{先行研究}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\chapter{解析手法}
+\section{サブセクション}
+\subsection{サブサブセクション}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\begin{equation}
+Y=ax^3+bx^2+cx+d \\
+\end{equation}
+\begin{eqnarray}
+E[3^S] & = & \sum ^{N} _{k=0}{} _{N}\mathrm{C}_{k} \left( \frac{3}{9} \right)^{k} \left( \frac{8}{9} \right)^{N-k} \\
+       & = & \left( \frac{11}{9}\right)^N \\
+\end{eqnarray}
+\subsection{サブサブセクション}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\begin{eqnarray}
+\int^\frac{\pi}{2} _0 \sin^4\theta \cos^2 \theta {\rm d} \theta &=& \frac{1}{2} \cdot 2 \int^\frac{\pi}{2} _0 \sin^{2 \cdot \frac{5}{2} -1}\theta \cos^{2 \cdot \frac{3}{2}-1} \theta {\rm d}\theta\\
+&=& \frac{1}{2} \cdot \rm B \left( \frac{5}{2} , \frac{3}{2} \right)\nonumber \\
+&=& \frac{\Gamma \left(\frac{5}{2} \right)\Gamma \left(\frac{3}{2} \right)}{2\cdot\Gamma \left( 4 \right)}\\
+&=& \frac{\frac{3}{2} \cdot \frac{1}{2} \cdot \sqrt{\pi} \cdot \frac{1}{2} \cdot \sqrt{\pi}}{2 \cdot 3! }  =  \frac{3 \cdot \pi}{2^5 \cdot 3}\nonumber \\
+&=& \frac{\pi}{32}
+\end{eqnarray}
+\chapter{実験}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\chapter{結果}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\chapter{考察と今後の課題}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+\chapter*{謝辞}
+\pagestyle{plain}
+\addcontentsline{toc}{chapter}{謝辞}
+ここに研究の謝辞．主にご協力いただいた方など．
+\bibliographystyle{jplain}
+\begin{thebibliography}{3}
+\bibitem{1}
+谷啓（2011），
+統計学的トロンボーン演奏法．
+どこかの統計学論文誌Ａ, 0号, Vol.0, 11--92 
+\bibitem{2}
+つのだ☆ひろ（2009），
+Rを使ったドラム演奏法．
+どこかの統計学論文誌B, 0号, Vol.0, 11--92 
+\bibitem{3}
+Dan Aykroyd（2000），
+Statistical American Joke．
+{\it Journal of Blues Brothers},0号, Vol.0, 11--92 
+
+\bibitem{4}
+「ホームページの引用はあんまりしないほうがいいよ講座」{\it http://www.google.co.jp/}（最終アクセス　2013年1月2日）
+\end{thebibliography}
+
+\chapter*{付録}
+\addcontentsline{toc}{chapter}{付録}
+
+\end{document}
